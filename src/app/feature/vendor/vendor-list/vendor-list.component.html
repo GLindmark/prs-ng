@@ -1,0 +1,24 @@
+<app-menu></app-menu>>
+
+<table class= "table" *ngIf='vendors'>
+    <thead class= "thead-dark">
+        <tr>
+            <th>ID</th>
+            <th><a (click) = "sortBy('name')"><u>Name</u></a></th>
+            <th><a (click) = "sortBy('address')"><u>Address</u></a></th>
+            <th><a (click) = "sortBy('city')"><u>City</u></a></th>
+            <th><a (click) = "sortBy('state')"><u>State</u></a></th>
+            <th><a (click) = "sortBy('zip')"><u>Zip</u></a></th>
+
+        </tr>
+    </thead>
+    <tr *ngFor= 'let v of vendors | sort:sortCriteria:sortOrder'>
+        <td>{{v.id}}</td>
+        <td>{{v.name}}</td>
+        <td>{{v.address}}</td>
+        <td>{{v.city}}</td>
+        <td>{{v.state}}</td>
+        <td>{{v.zip}}</td>
+
+    </tr>
+</table>
