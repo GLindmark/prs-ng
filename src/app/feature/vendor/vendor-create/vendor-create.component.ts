@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Vendor } from '@model/vendor';
+import { Vendor } from '@model/vendor.class';
 import { VendorService } from '@svc/vendor.service';
 import { Router } from '@angular/router';
 
@@ -21,7 +21,7 @@ export class VendorCreateComponent implements OnInit {
   create(){
     this.venderSvc.create(this.vendor).subscribe( resp => {
       //success
-      console.log(resp);
+      console.log('1'+resp);
       this.router.navigateByUrl('/vendor/list');
     },
     err => {
