@@ -1,1 +1,42 @@
-<p>request-list works!</p>
+<div class='component-content'>
+        <div class='lefthalf'>
+          <span class='component-title'>[{{title}}] </span>
+          <!-- <span *ngIf='loggedInUser.admin'><a routerLink='/request/create'> -->
+          <span><a routerLink='/request/create'>
+              <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
+          </span>
+        </div>
+      </div>
+      <p *ngIf='!requests'>Loading ...</p>
+      <table class="table table-sm" *ngIf='requests'>
+        <tr>
+          <th class='table-secondary'></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+              (click)="sortBy('name')"><u>Description</u></a></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+              (click)="sortBy('vendor')"><u>Justification</u></a></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+              (click)="sortBy('price')"><u>Rejection Reason</u></a></th>
+          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+              (click)="sortBy('unit')"><u>Delivery Mode</u></a></th>
+              <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+                (click)="sortBy('unit')"><u>Total</u></a></th>              
+          <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Action</a></th>
+        </tr>
+        <tr *ngFor='let request of requests | sort:sortCriteria:sortOrder'>
+          <td></td>
+          <td>{{request.description}}</td>
+          <td>{{request.justification}}</td>
+          <td>{{request.rejectionReason }}</td>
+          <td>{{request.deliveryMode}}</td>
+          <td>{{request.total}}</td>
+          <td class='actions'>
+            <a routerLink='/request/detail/{{request.id}}' style='padding-left: 16px' class='actionIcon'><img
+                src='assets/details.png' width='20' height='20' title='Detail'></a>
+            <!-- <a *ngIf='loggedInUser.admin' routerLink='/request/edit/{{request.id}}' class='actionIcon'><img -->
+            <a routerLink='/request/edit/{{request.id}}' class='actionIcon'><img
+                src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+          </td>
+        </tr>
+      </table>
+      
