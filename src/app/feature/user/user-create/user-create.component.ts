@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '@model/user';
+import { User } from '@model/user.class';
 import { UserService } from '@svc/user.service';
 import { Router } from '@angular/router';
 
@@ -13,7 +13,7 @@ export class UserCreateComponent implements OnInit {
   title: string = 'User-Create';
 
   constructor( private userSvc: UserService,
-     private router: Router) { }
+     private router: Router) { }//this constructor connects the component to the services
 
   ngOnInit() {
   }

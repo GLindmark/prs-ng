@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserService } from '@svc/user.service';
-import { User } from '@model/user';
+import { User } from '@model/user.class';
 
 @Component({
   selector: 'app-user-list',
@@ -10,6 +10,7 @@ import { User } from '@model/user';
 })
 export class UserListComponent implements OnInit {
   users: User[];
+  title: string = "User-List"
   sortCriteria = 'username';
   sortOrder = 'asc';
 
