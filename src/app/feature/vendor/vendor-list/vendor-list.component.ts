@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { VendorService} from '@svc/vendor.service';
 import { Vendor } from '@model/vendor.class';
 
@@ -12,7 +11,7 @@ export class VendorListComponent implements OnInit {
   vendors: Vendor[];
   sortCriteria = 'vendorname';
   sortOrder = 'asc';
-  title: "Vendor-List"
+  title: string = "Vendor-List"
 
   constructor(private vendorSvc: VendorService) { }
 
@@ -34,7 +33,4 @@ export class VendorListComponent implements OnInit {
       this.sortOrder = 'asc';
     }
   }
-
-
-
 }

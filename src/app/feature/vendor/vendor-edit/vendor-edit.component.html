@@ -1,10 +1,10 @@
 <div id='component'>
         <div id='pagetitle'>
-          <span>[{{title}}]</span>
+          <span>{{title}}</span>
         </div>
         <p *ngIf='!vendor'>Loading...</p>
         <div *ngIf='vendor'>
-      
+            <span><a routerLink='/vendor/list'>Back to list</a></span>
             <div class="form-group row">
                 <label class='col-form-label col-sm-2' for="vendorcode">Code</label>
                 <input [(ngModel)]='vendor.code' name='Code' type="text" class="form-control col-sm-6" id="vendorcode"

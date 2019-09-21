@@ -24,5 +24,10 @@ export class Vendor {
 
      }
 
+     about(): string {
+      return 'Vendor: id='+this.id+', code='+this.code+', name='+this.name+', address='+this.address+
+             ', city='+this.city+', state='+this.state+', zip='+this.zip+', phone='+this.phone+', email='+this.email;
+     }
+
 
 }

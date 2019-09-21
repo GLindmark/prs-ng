@@ -10,7 +10,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class VendorEditComponent implements OnInit {
   vendor: Vendor = new Vendor();
-  title: string = "Vendor-Edit"
+  title: string = "Vendor-Edit";
 
   constructor(private vendorSvc: VendorService,
     private router: Router,
@@ -20,13 +20,13 @@ export class VendorEditComponent implements OnInit {
     //get the vendor id from request, get vendor from db
     this.route.params.subscribe(parms =>{
       this.vendorSvc.get(parms.id).subscribe(resp => {
-        this.vendor =resp as Vendor;
+        this.vendor = resp as Vendor;
         console.log('vendor edit: '+this.vendor.id);
       })
     });
   }
   edit(){
-    this. vendorSvc.edit(this.vendor).subscribe(resp => {
+    this.vendorSvc.edit(this.vendor).subscribe(resp => {
       //success
       console.log(resp);
       this.router.navigateByUrl('/vendor/list');
@@ -36,5 +36,4 @@ export class VendorEditComponent implements OnInit {
       console.log(err);
     });
   }
-
 }
