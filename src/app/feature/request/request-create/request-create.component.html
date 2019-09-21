@@ -18,33 +18,33 @@
               aria-describedby="nameHelp" placeholder="Justification">
             <small id="nameHelp" class="form-text text-muted col-sm-2">Justification</small>
           </div>
-          <div class="form-group row">
+          <!-- <div class="form-group row">
             <label class='col-form-label col-sm-2' for="requestaddress">Rejection Reason:</label>
             <input [(ngModel)]='request.rejectionReason' name='Address' type="text" class="form-control col-sm-6" id="requestaddress"
               aria-describedby="vnaddressHelp" placeholder="Rejection Reason">
             <small id="vnaddressHelp" class="form-text text-muted col-sm-2">Rejection Reason</small>
-          </div>
+          </div> -->
           <div class="form-group row">
             <label class='col-form-label col-sm-2' for="requestcity">Delivery Mode:</label>
             <input [(ngModel)]='request.deliveryMode' name='City' type="text" class="form-control col-sm-6" id="requestcity"
               aria-describedby="vncityHelp" placeholder="Delivery Mode">
             <small id="vncityHelp" class="form-text text-muted col-sm-2">Delivery Mode</small>
-          </div>
+          <!-- </div>
           <div class="form-group row">
             <label class='col-form-label col-sm-2' for="requeststate">Status:</label>
             <input [(ngModel)]='request.status' name='State' type="text" class="form-control col-sm-6" id="requeststate"
               aria-describedby="vnstateHelp" placeholder="Status">
             <small id="vnstateHelp" class="form-text text-muted col-sm-2">Status</small>
-          </div>
-          <div class="form-group row">
+          </div> -->
+          <!-- <div class="form-group row">
                 <label class='col-form-label col-sm-2' for="zip">Total:</label>
                 <input [(ngModel)]='request.total' name='zip' type="text" class="form-control col-sm-6" id="zip"
                   aria-describedby="vnzipHelp" placeholder="Total">
                 <small id="vnzipHelp" class="form-text text-muted col-sm-2">Total</small>
-              </div>
+              </div> -->
           <div class="form-group row">
             <label class='col-form-label col-sm-2' for="zip">User:</label>
-            <input [(ngModel)]='request.user' name='zip' type="text" class="form-control col-sm-6" id="zip"
+            <input [(ngModel)]='request.user.id' name='zip' type="text" class="form-control col-sm-6" id="zip"
               aria-describedby="vnzipHelp" placeholder="User">
             <small id="vnzipHelp" class="form-text text-muted col-sm-2">User</small>
           </div>
