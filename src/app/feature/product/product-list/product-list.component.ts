@@ -23,6 +23,7 @@ export class ProductListComponent implements OnInit {
   }
 
   sortBy(column: string): void {
+    //TO DO get the Vendor column to sort
     if (this.sortCriteria === column) {
       this.sortOrder = (this.sortOrder === 'asc' ? 'desc' : 'asc');
     } else {

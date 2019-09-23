@@ -8,7 +8,7 @@ import { Request } from '@model/request.class';
   styleUrls: ['./request-list.component.css']
 })
 export class RequestListComponent implements OnInit {
-  title: string = "Request-List"
+  title: string = "Request-List";
   requests: Request[];
   sortCriteria = 'description';
   sortOrder = 'asc';

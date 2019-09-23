@@ -16,15 +16,21 @@ import { RequestListComponent } from './feature/request/request-list/request-lis
 import { UserLoginComponent } from './feature/user/user-login/user-login.component';
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
+import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
+// import { LineItemListComponent } from './feature/request-line/line-item-list/line-item-list.component';
+import { LineItemCreateComponent } from './feature/request-line/line-item-create/line-item-create.component';
+// import { LineItemDetailComponent } from './feature/request-line/line-item-detail/line-item-detail.component';
+// import { LineItemEditComponent } from './feature/request-line/line-item-edit/line-item-edit.component';
+
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/user/list', pathMatch: 'full'},
+  {path: 'user/login', component: UserLoginComponent},
   {path: 'user/list', component: UserListComponent},
   {path: 'user/create', component: UserCreateComponent},
   {path: 'user/detail/:id', component: UserDetailComponent},
   {path: 'user/edit/:id', component: UserEditComponent},
-  {path: 'user/login', component: UserLoginComponent},
   {path: 'vendor/list', component: VendorListComponent},
   {path: 'vendor/create', component: VendorCreateComponent},
   {path: 'vendor/detail/:id', component: VendorDetailComponent},
@@ -35,9 +41,13 @@ const routes: Routes = [
   {path: 'product/edit/:id', component: ProductEditComponent},
   {path: 'request/list', component: RequestListComponent},
   {path: 'request/create', component: RequestCreateComponent},
-  // {path: 'request/detail/:id', component: RequestDetailComponent},
-  {path: 'request/edit/:id', component: RequestEditComponent}
-];
+  {path: 'request/detail/:id', component: RequestDetailComponent},
+  {path: 'request/edit/:id', component: RequestEditComponent},
+
+  {path: 'request-line/create', component: LineItemCreateComponent},
+
+//   {path: 'request-line/edit/:id', component: LineItemEditComponent}
+ ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

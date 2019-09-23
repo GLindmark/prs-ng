@@ -3,6 +3,7 @@
     <span class='component-title'>[{{title}}]</span>
   </div>
   <p *ngIf='!product'>Loading...</p>
+  <span><a routerLink='/product/list'>Back to list</a></span>
 
   <div *ngIf='product&&product.vendor'>
     <hr />

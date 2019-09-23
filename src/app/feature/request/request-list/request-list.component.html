@@ -12,22 +12,23 @@
         <tr>
           <th class='table-secondary'></th>
           <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-              (click)="sortBy('name')"><u>Description</u></a></th>
+              (click)="sortBy('description')"><u>Description</u></a></th>
           <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-              (click)="sortBy('vendor')"><u>Justification</u></a></th>
+              (click)="sortBy('justification')"><u>Justification</u></a></th>
           <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-              (click)="sortBy('price')"><u>Rejection Reason</u></a></th>
+              (click)="sortBy('status')"><u>Status</u></a></th>
           <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-              (click)="sortBy('unit')"><u>Delivery Mode</u></a></th>
+              (click)="sortBy('deliveryMode')"><u>Delivery Mode</u></a></th>
               <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-                (click)="sortBy('unit')"><u>Total</u></a></th>              
+                (click)="sortBy('total')"><u>Total</u></a></th>              
           <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Action</a></th>
         </tr>
         <tr *ngFor='let request of requests | sort:sortCriteria:sortOrder'>
           <td></td>
           <td>{{request.description}}</td>
           <td>{{request.justification}}</td>
-          <td>{{request.rejectionReason }}</td>
+          <!-- <td>{{request.rejectionReason }}</td> -->
+          <td>{{request.status}}</td>
           <td>{{request.deliveryMode}}</td>
           <td>{{request.total}}</td>
           <td class='actions'>
@@ -36,6 +37,8 @@
             <!-- <a *ngIf='loggedInUser.admin' routerLink='/request/edit/{{request.id}}' class='actionIcon'><img -->
             <a routerLink='/request/edit/{{request.id}}' class='actionIcon'><img
                 src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+            <a routerLink='/request-line/create' class='actionIcon'><img
+                src='assets/lines.png' width='20' height='20' title='Edit'></a>
           </td>
         </tr>
       </table>
