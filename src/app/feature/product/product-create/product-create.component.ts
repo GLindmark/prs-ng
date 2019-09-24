@@ -16,7 +16,9 @@ export class ProductCreateComponent implements OnInit {
   product: Product = new Product(0, '', '', 0, '', '', 0, this.vendor);
   vendors: Vendor[] = [this.vendor];
 
-  constructor(private prodSvc: ProductService, private vndrSvc: VendorService, private router: Router) { }
+  constructor(private prodSvc: ProductService,
+               private vndrSvc: VendorService,
+               private router: Router) { }
 
   ngOnInit() {
     this.vndrSvc.list().subscribe(resp => {

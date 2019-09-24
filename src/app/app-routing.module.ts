@@ -17,10 +17,9 @@ import { UserLoginComponent } from './feature/user/user-login/user-login.compone
 import { RequestCreateComponent } from './feature/request/request-create/request-create.component';
 import { RequestEditComponent } from './feature/request/request-edit/request-edit.component';
 import { RequestDetailComponent } from './feature/request/request-detail/request-detail.component';
-// import { LineItemListComponent } from './feature/request-line/line-item-list/line-item-list.component';
 import { LineItemCreateComponent } from './feature/request-line/line-item-create/line-item-create.component';
-// import { LineItemDetailComponent } from './feature/request-line/line-item-detail/line-item-detail.component';
-// import { LineItemEditComponent } from './feature/request-line/line-item-edit/line-item-edit.component';
+import { LineItemListComponent } from './feature/request-line/line-item-list/line-item-list.component';
+import { LineItemEditComponent} from './feature/request-line/line-item-edit/line-item-edit.component';
 
 
 
@@ -43,10 +42,9 @@ const routes: Routes = [
   {path: 'request/create', component: RequestCreateComponent},
   {path: 'request/detail/:id', component: RequestDetailComponent},
   {path: 'request/edit/:id', component: RequestEditComponent},
-
-  {path: 'request-line/create', component: LineItemCreateComponent},
-
-//   {path: 'request-line/edit/:id', component: LineItemEditComponent}
+  {path: 'request-line/create/:id', component: LineItemCreateComponent},
+  {path: 'request-line/list/:id', component: LineItemListComponent},
+  {path: 'request-line/edit', component: LineItemEditComponent}
  ];
 
 @NgModule({

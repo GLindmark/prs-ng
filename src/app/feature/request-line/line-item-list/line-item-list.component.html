@@ -2,13 +2,13 @@
         <div class='lefthalf'>
           <span class='component-title'>[{{title}}] </span>
           <!-- <span *ngIf='loggedInUser.admin'><a routerLink='/request/create'> -->
-          <span><a routerLink='/request/create'>
+          <span *ngIf = 'request'><a routerLink='/request-line/create/{{request.id}}'>
               <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
           </span>
         </div>
       </div>
-      <p *ngIf='!requests'>Loading ...</p>
-      <table class="table table-sm" *ngIf='requests'>
+      <!-- <p *ngIf='!request'>Loading ...</p> -->
+      <table class="table table-sm" *ngIf='request'>
         <tr>
           <th class='table-secondary'></th>
           <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
@@ -21,25 +21,54 @@
               (click)="sortBy('deliveryMode')"><u>Delivery Mode</u></a></th>
               <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
                 (click)="sortBy('total')"><u>Total</u></a></th>              
-          <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Action</a></th>
+          <!-- <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Action</a></th> -->
         </tr>
-        <tr *ngFor='let request of requests | sort:sortCriteria:sortOrder'>
+        <tr>
           <td></td>
           <td>{{request.description}}</td>
           <td>{{request.justification}}</td>
           <!-- <td>{{request.rejectionReason }}</td> -->
           <td>{{request.status}}</td>
           <td>{{request.deliveryMode}}</td>
-          <td>{{request.total}}</td>
-          <td class='actions'>
+          <td>{{request.total | currency}}</td>
+          <!-- <td class='actions'>
             <a routerLink='/request/detail/{{request.id}}' style='padding-left: 16px' class='actionIcon'><img
                 src='assets/details.png' width='20' height='20' title='Detail'></a>
-            <!-- <a *ngIf='loggedInUser.admin' routerLink='/request/edit/{{request.id}}' class='actionIcon'><img -->
-            <a routerLink='/request/edit/{{request.id}}' class='actionIcon'><img
+            <a *ngIf='loggedInUser.admin' routerLink='/request/edit/{{request.id}}' class='actionIcon'><img -->
+            <!-- <a routerLink='/request/edit/{{request.id}}' class='actionIcon'><img
                 src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
             <a routerLink='/request-line/list/{{request.id}}' class='actionIcon'><img
-                src='assets/lines.png' width='20' height='20' title='Edit'></a>
-          </td>
+                src='assets/lines.png' width='20' height='20' title='Edit'></a> -->
+          <!-- </td> -->
         </tr>
       </table>
+      <table class= 'table table-sm' *ngIf = "request">
+          <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Price</th>
+              <th>Line Total</th>
+              <th>Action</th>
+          </tr>
+          <tr *ngFor = "let rl of request.requestLines">
+              <td>{{rl.product.name}}</td>
+              <td> {{rl.quantity}}</td>
+              <td>{{rl.product.price}}</td>
+              <td>{{rl.product.price * rl.quantity | currency}}</td>
+              
+              <td class='actions'>
+                    <!-- <a *ngIf='loggedInUser.admin' routerLink='/request/edit/{{request.id}}' class='actionIcon'><img -->
+                    <a routerLink='/request-line/edit' class='actionIcon'><img
+                            src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
+                    <a routerLink='/request-line/delete' class='actionIcon'><img
+                            src='assets/delete.jpg' width='20' height='20' title='Delete'></a>
+
+                </td>
+            </tr>
+
+
+
+      </table>
+
       
+
