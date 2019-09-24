@@ -44,7 +44,7 @@ const routes: Routes = [
   {path: 'request/edit/:id', component: RequestEditComponent},
   {path: 'request-line/create/:id', component: LineItemCreateComponent},
   {path: 'request-line/list/:id', component: LineItemListComponent},
-  {path: 'request-line/edit', component: LineItemEditComponent}
+  {path: 'request-line/edit/:id', component: LineItemEditComponent}
  ];
 
 @NgModule({

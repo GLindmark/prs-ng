@@ -58,19 +58,30 @@
               
               <td class='actions'>
                     <!-- <a *ngIf='loggedInUser.admin' routerLink='/request/edit/{{request.id}}' class='actionIcon'><img -->
-                    <a routerLink='/request-line/edit' class='actionIcon'><img
+                    <a routerLink='/request-line/edit/{{request.id}}' class='actionIcon'><img
                             src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
                     <!-- <a routerLink='/request-line/delete' class='actionIcon'><img
                             src='assets/delete.jpg' width='20' height='20' title='Delete'></a> -->
 
                     <button (click)='remove(rl.id)' class='btn btn-danger'
                      width='20' height='20' title='Delete'>Delete</button>
-                </td>
+                    </td>
+                  </tr>
+                    </table>
+
+                     <tr>
+
+                       
+                       
+                       <button (click)='Submit()' class='btn'
+                       width='20' height='20' title='Submit For Review'>Submit For Review</button>
+                       
+
+
             </tr>
 
 
 
-      </table>
 
       
 
