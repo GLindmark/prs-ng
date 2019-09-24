@@ -1,1 +1,27 @@
 <p>line-item-edit works!</p>
+<div class='component-content'>
+        <div>
+          <span class='component-title'>[{{title}}] | </span>
+          <!-- | <span><a routerLink='/product/create'>New Product</a></span> -->
+          <span><a routerLink='/request-line/list/{this.requestLine.requestId}'>Back to list</a></span>
+        </div>
+        <p *ngIf='undefined'>Loading ...</p>
+        <div *ngIf='requestLine'>
+          <div class='form-group row'>
+            <label class='col-form-label col-sm-2' for="product">Product :</label>
+            <div class=' col-sm-6'>
+              <select [(ngModel)]='requestLine.productId' [compareWith]='compareFn' class='form-control' name='Product' id='product'>
+                <option *ngFor="let product of products" [ngValue]="product.id">{{product.name}}</option>
+              </select>
+            </div>
+                
+            <div class=' col-sm-6'>
+                <label class='col-form-label col-sm-2' for="quantity">Quantity :</label>
+                  <input [(ngModel)]='requestLine.quantity' class='input' type = 'number'>
+          
+           <div class='form-group'>
+            <button (click)='edit()' class='btn btn-primary'>Edit</button>
+          </div>
+        </div>
+      </div>
+

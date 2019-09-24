@@ -41,7 +41,7 @@ export class ProductEditComponent implements OnInit {
     });
   }
 
-  compareFn(v1: number, v2: number): boolean {
-    return v1 === v2;
+  compareFn(p1: number, p2: number): boolean {
+    return p1 === p2;
   }
 }

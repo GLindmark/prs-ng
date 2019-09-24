@@ -53,16 +53,18 @@
           <tr *ngFor = "let rl of request.requestLines">
               <td>{{rl.product.name}}</td>
               <td> {{rl.quantity}}</td>
-              <td>{{rl.product.price}}</td>
+              <td>{{rl.product.price | currency}}</td>
               <td>{{rl.product.price * rl.quantity | currency}}</td>
               
               <td class='actions'>
                     <!-- <a *ngIf='loggedInUser.admin' routerLink='/request/edit/{{request.id}}' class='actionIcon'><img -->
                     <a routerLink='/request-line/edit' class='actionIcon'><img
                             src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>
-                    <a routerLink='/request-line/delete' class='actionIcon'><img
-                            src='assets/delete.jpg' width='20' height='20' title='Delete'></a>
+                    <!-- <a routerLink='/request-line/delete' class='actionIcon'><img
+                            src='assets/delete.jpg' width='20' height='20' title='Delete'></a> -->
 
+                    <button (click)='remove(rl.id)' class='btn btn-danger'
+                     width='20' height='20' title='Delete'>Delete</button>
                 </td>
             </tr>
 

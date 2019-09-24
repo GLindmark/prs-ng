@@ -14,35 +14,47 @@ export class LineItemListComponent implements OnInit {
   title: string = "Request-Line-List";
   request: Request;
   requestLine: RequestLine;
-  
 
-  constructor(
-              private requestSvc: RequestService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+
+  constructor(private requestLineSvc: RequestLineService,
+    private requestSvc: RequestService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     let id = this.route.snapshot.params.id;
     this.requestSvc.get(id).subscribe(
-      resp =>{
+      resp => {
         this.request = resp;
         console.log(this.request);
       }
     )
 
 
+
+
   }
-  remove(){
-    this.requestSvc.delete(this.requestLine.request.id).subscribe(resp => {
-      alert('User '+this.requestLine.request.id+'successfully deleted!');
-      this.router.navigateByUrl(`/request-line/list/${this.requestLine.requestId}`);
 
-    },
-    err => {
-      console.log('error deleting user');
-      console.log(err);
+  refresh() {
+    this.requestSvc.get(this.request.id).subscribe(
+      resp => {
+        this.request = resp;
+        console.log(this.request);
+      }
+    )
+  }
+  remove(id) {
+    console.log("Should delete request line id is " + id);
+    this.requestLineSvc.delete(id).subscribe(
+      resp => {
+        // alert('Line Item '+this.requestLine.requestId+'successfully deleted!');
+        this.refresh();
+      },
+      err => {
+        console.log('error deleting line item');
+        console.log(err);
 
-    });
+      });
   }
 
 }

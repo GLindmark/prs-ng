@@ -13,7 +13,7 @@ import { RequestLine } from '@model/request-line.class';
   styleUrls: ['./line-item-edit.component.css']
 })
 export class LineItemEditComponent implements OnInit {
-  title: string = "Line-Item-Create";
+  title: string = "Line-Item-Edit";
   requestLine: RequestLine = new RequestLine();
   products: Product[];
 
@@ -29,21 +29,20 @@ export class LineItemEditComponent implements OnInit {
     this.requestLine.requestId = this.route.snapshot.params.id;
   }
   edit(){
-    this.requestLine.productId = this.requestLine.product.id;
     this.requestLine.product = null;
+    console.log("B4 Edit:", this.requestLine);
     this.requestLineSvc.edit(this.requestLine).subscribe(
       resp => {
         //success
-        this.requestLine = resp as RequestLine;
+        // this.requestLine = resp as RequestLine;
       console.log('1'+resp);
-      this.router.navigateByUrl('/request/list');
+      this.router.navigateByUrl(`/request-line/list/${this.requestLine.requestId}`);
     },
  
     );
 
-
-
-
-
+}
+compareFn(p1: number, p2: number): boolean {
+  return p1 === p2;
 }
 }
