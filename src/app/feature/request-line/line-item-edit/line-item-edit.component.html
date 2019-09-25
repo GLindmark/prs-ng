@@ -2,7 +2,7 @@
         <div>
           <span class='component-title'>[{{title}}] | </span>
           <!-- | <span><a routerLink='/product/create'>New Product</a></span> -->
-          <span><a routerLink='/request-line/list/{{this.requestLine.requestId}}'>Back to list</a></span>
+          <span *ngIf='requestLine'><a routerLink='/request-line/list/{{requestLine.requestId}}'>Back to list</a></span>
         </div>
         <p *ngIf='undefined'>Loading ...</p>
         <div *ngIf='requestLine'>
@@ -17,10 +17,11 @@
                 
             <div class=' col-sm-6'>
                 <label class='col-form-label col-sm-2' for="quantity">Quantity :</label>
+                  <!-- <input [{{this.requestline.quantity}}]> -->
                   <input [(ngModel)]='requestLine.quantity' class='input' type = 'number'>
           
            <div class='form-group'>
-            <button (click)='edit()' class='btn btn-primary'>Edit</button>
+            <button (click)='edit()' class='btn btn-primary'>Save</button>
           </div>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { Request } from '@model/request.class';
 import { RequestService } from '@svc/request.service ';
 import { User } from '@model/user.class';
 import { UserService } from '@svc/user.service';
+import { SystemService } from '@svc/system.service';
 
 
 @Component({
@@ -13,25 +14,25 @@ import { UserService } from '@svc/user.service';
 })
 export class RequestCreateComponent implements OnInit {
   title: string = 'Request Create';
-  user: User = new User(0, '', '', '', '', '','', false, false);
-  request: Request = new Request(0, '', '', '', '', '', 0, 0, this.user);
-  users: User[] = [this.user];
+  user: User;
+  request: Request = new Request();
+  
   
 
   constructor(private requestSvc: RequestService,
               private userSvc: UserService,
+              private systemSvc: SystemService,
               private router: Router) { }
 
   ngOnInit() {
-    this.userSvc.list().subscribe(resp => {
-      this.users = resp as User[];
-    });
-
+    this.user = this.systemSvc.data.user.instance;
+    this.request.userId = this.user.id;
+    
+    
   }
-
+  
   create(){
-    this.request.userId = this.request.user.id;
-    this.request.user = null;
+    // this.request.user = null;
     this.requestSvc.create(this.request).subscribe(
        resp => {
       //success

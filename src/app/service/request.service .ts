@@ -30,5 +30,16 @@ export class RequestService {
   delete(id: number): Observable<any> {
     return this.http.delete(this.url+"/"+id);
   }
+  submit(id: number): Observable<Request> {
+    return this.http.get('http://localhost:61100/api/setstatusreview/'+id) as Observable<Request>;
+  }
+
+  approve(id: number): Observable<Request> {
+    return this.http.get('http://localhost:61100/api/setstatusapproved/'+id) as Observable<Request>;
+  }
+
+  getreview(id: number): Observable<Request> {
+    return this.http.get('http://localhost:61100/api/getrequestsforreview/'+id) as Observable<Request>;
+  }
 
 }

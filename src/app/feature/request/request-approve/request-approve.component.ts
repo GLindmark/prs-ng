@@ -28,10 +28,6 @@ export class RequestApproveComponent implements OnInit {
         console.log(this.request);
       }
     )
-
-
-
-
   }
 
   refresh() {
@@ -41,5 +37,15 @@ export class RequestApproveComponent implements OnInit {
         console.log(this.request);
       }
     )
+  }
+
+  approve(id) {
+    this.requestSvc.approve(this.request.id).subscribe(
+      resp => {
+        this.request = resp;
+      }
+    )
+
+
   }
 }

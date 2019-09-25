@@ -1,74 +1,65 @@
-<p>request-approve works!</p>
 <div class='component-content'>
-        <div class='lefthalf'>
-          <span class='component-title'>[{{title}}] </span>
-          <!-- <span *ngIf='loggedInUser.admin'><a routerLink='/request/create'> -->
-            <!-- <span><a routerLink='/request/list'>Back to list</a></span>
+  <div class='lefthalf'>
+    <span class='component-title'>[{{title}}] </span>
+    <span><a routerLink='/request/approve/'>Back to list</a></span>
+    <!-- <span *ngIf='loggedInUser.admin'><a routerLink='/request/create'> -->
+    <!-- <span><a routerLink='/request/list'>Back to list</a></span>
           <span *ngIf = 'request'><a routerLink='/request-line/create/{{request.id}}'>
               <img id='createnew' width='20' height='20' src='assets/add-icon.png' title='Add New'></a>
           </span> -->
-        </div>
-      </div>
-      <p *ngIf='!request'>Loading ...</p>
-      <table class="table table-sm" *ngIf='request'>
-        <tr>
-          <th class='table-secondary'></th>
-          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-              (click)="sortBy('description')"><u>Description</u></a></th>
-          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-              (click)="sortBy('justification')"><u>Justification</u></a></th>
-          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-              (click)="sortBy('status')"><u>Status</u></a></th>
-          <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-              (click)="sortBy('deliveryMode')"><u>Delivery Mode</u></a></th>
-              <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
-                (click)="sortBy('total')"><u>Total</u></a></th>              
-          <!-- <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Action</a></th> -->
-        </tr>
-        <tr>
-          <td></td>
-          <td>{{request.description}}</td>
-          <td>{{request.justification}}</td>
-          <!-- <td>{{request.rejectionReason }}</td> -->
-          <td>{{request.status}}</td>
-          <td>{{request.deliveryMode}}</td>
-          <td>{{request.total | currency}}</td>
-        </tr>
-      </table>
-      <table class= 'table table-sm' *ngIf = "request">
-          <tr>
-              <th>Product</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Line Total</th>
-              <th>Action</th>
-          </tr>
-          <tr *ngFor = "let rl of request.requestLines">
-              <td>{{rl.product.name}}</td>
-              <td>{{rl.quantity}}</td>
-              <td>{{rl.product.price | currency}}</td>
-              <td>{{rl.product.price * rl.quantity | currency}}</td>
-              
-              <td class='actions'>
+  </div>
+</div>
+<p *ngIf='!request'>Loading ...</p>
+<table class="table table-sm" *ngIf='request'>
+  <tr>
+    <th class='table-secondary'></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('description')"><u>Description</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('justification')"><u>Justification</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('status')"><u>Status</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('deliveryMode')"><u>Delivery Mode</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('total')"><u>Total</u></a></th>
+    <!-- <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Action</a></th> -->
+  </tr>
+  <tr>
+    <td></td>
+    <td>{{request.description}}</td>
+    <td>{{request.justification}}</td>
+    <!-- <td>{{request.rejectionReason }}</td> -->
+    <td>{{request.status}}</td>
+    <td>{{request.deliveryMode}}</td>
+    <td>{{request.total | currency}}</td>
+  </tr>
+</table>
+<table class='table table-sm' *ngIf="request">
+  <tr>
+    <th>Product</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Line Total</th>
+  </tr>
+  <tr *ngFor="let rl of request.requestLines">
+    <td>{{rl.product.name}}</td>
+    <td>{{rl.quantity}}</td>
+    <td>{{rl.product.price | currency}}</td>
+    <td>{{rl.product.price * rl.quantity | currency}}</td>
 
-                    </td>
-                  </tr>
-    </table>
+    <td class='actions'>
 
-                     <tr>
+    </td>
+  </tr>
+</table>
 
-                       
-                       
-                       <button (click)='Submit()' class= 'btn-primary'
-                       width='20' height='20' title='Submit For Review'>Approve</button>
-                       
-
-
-            </tr>
+<tr>
 
 
 
+  <button (click)='approve()' class='btn-primary' width='20' height='20' title='Approve'>Approve</button>
 
-      
 
 
+</tr>

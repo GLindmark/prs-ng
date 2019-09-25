@@ -47,7 +47,7 @@ const routes: Routes = [
   {path: 'request-line/list/:id', component: LineItemListComponent},
   {path: 'request-line/edit/:id', component: LineItemEditComponent},
   {path: 'request/review', component: RequestReviewListComponent},
-  {path: 'request/approve', component: RequestApproveComponent},
+  {path: 'request/approve/:id', component: RequestApproveComponent},
  ];
 
 @NgModule({

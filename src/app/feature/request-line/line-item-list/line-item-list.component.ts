@@ -29,10 +29,6 @@ export class LineItemListComponent implements OnInit {
         console.log(this.request);
       }
     )
-
-
-
-
   }
 
   refresh() {
@@ -43,6 +39,7 @@ export class LineItemListComponent implements OnInit {
       }
     )
   }
+
   remove(id) {
     console.log("Should delete request line id is " + id);
     this.requestLineSvc.delete(id).subscribe(
@@ -55,6 +52,16 @@ export class LineItemListComponent implements OnInit {
         console.log(err);
 
       });
+  }
+
+  submit(id) {
+    this.requestSvc.submit(this.request.id).subscribe(
+      resp => {
+        this.request = resp;
+      }
+    )
+
+
   }
 
 }

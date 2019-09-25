@@ -14,7 +14,7 @@ import { RequestLine } from '@model/request-line.class';
 })
 export class LineItemEditComponent implements OnInit {
   title: string = "Line-Item-Edit";
-  requestLine: RequestLine = new RequestLine();
+  requestLine: RequestLine;
   products: Product[];
 
   constructor(private requestLineSvc: RequestLineService,
@@ -26,7 +26,10 @@ export class LineItemEditComponent implements OnInit {
     this.productSvc.list().subscribe(resp => {
       this.products = resp as Product[];
     });
-    this.requestLine.requestId = this.route.snapshot.params.id;
+    let rlid = this.route.snapshot.params.id;
+    this.requestLineSvc.get(rlid).subscribe(resp => {
+      this.requestLine = resp;
+    });
   }
   edit(){
     this.requestLine.product = null;
@@ -42,7 +45,7 @@ export class LineItemEditComponent implements OnInit {
     );
 
 }
-compareFn(p1: number, p2: number): boolean {
-  return p1 === p2;
+compareFn(v1: number, v2: number): boolean {
+  return v1 === v2;
 }
 }
