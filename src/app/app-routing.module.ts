@@ -20,7 +20,8 @@ import { RequestDetailComponent } from './feature/request/request-detail/request
 import { LineItemCreateComponent } from './feature/request-line/line-item-create/line-item-create.component';
 import { LineItemListComponent } from './feature/request-line/line-item-list/line-item-list.component';
 import { LineItemEditComponent} from './feature/request-line/line-item-edit/line-item-edit.component';
-
+import { RequestReviewListComponent} from './feature/request/request-review-list/request-review-list.component';
+import { RequestApproveComponent } from './feature/request/request-approve/request-approve.component';
 
 
 const routes: Routes = [
@@ -44,7 +45,9 @@ const routes: Routes = [
   {path: 'request/edit/:id', component: RequestEditComponent},
   {path: 'request-line/create/:id', component: LineItemCreateComponent},
   {path: 'request-line/list/:id', component: LineItemListComponent},
-  {path: 'request-line/edit/:id', component: LineItemEditComponent}
+  {path: 'request-line/edit/:id', component: LineItemEditComponent},
+  {path: 'request/review', component: RequestReviewListComponent},
+  {path: 'request/approve', component: RequestApproveComponent},
  ];
 
 @NgModule({
