@@ -4,6 +4,7 @@ import { RequestLineService } from '@svc/request-Line.service';
 import { RequestService } from '@svc/request.service ';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SystemService } from '@svc/system.service';
+import { Request } from '@model/request.class';
 
 @Component({
   selector: 'app-request-approve',
@@ -46,13 +47,24 @@ export class RequestApproveComponent implements OnInit {
     this.requestSvc.approve(this.request.id).subscribe(
       resp => {
         this.request = resp;
+        this.router.navigateByUrl('/request/review');
+        
       }
     )
+  }
+  reject(id) {
+    this.requestSvc.edit(this.request).subscribe(resp => {
+
+      this.requestSvc.reject(this.request.id).subscribe(
+        resp => {
+          this.router.navigateByUrl('/request/review');
+          
+        }
+      )
+    })
+  }
+
 
 
   }
 
-  showRejectReason(): void {
-    this.Rejected = true;
-  }
-}

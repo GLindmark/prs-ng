@@ -1,7 +1,9 @@
 <div class='component-content'>
   <div class='lefthalf'>
     <span class='component-title'>[{{title}}] </span>
-    <span><a routerLink='/request/review/{{request.id}}'>Back to list</a></span>
+    <div>
+      <span><a routerLink='/request/review'>Back to list</a></span>
+    </div>
     <!-- <span *ngIf='loggedInUser.admin'><a routerLink='/request/create'> -->
     <!-- <span><a routerLink='/request/list'>Back to list</a></span>
           <span *ngIf = 'request'><a routerLink='/request-line/create/{{request.id}}'>
@@ -53,47 +55,22 @@
     </td>
   </tr>
 </table>
-<!-- <table>
+<table>
   <tr>
     <button (click)='approve()' class='btn-primary' width='20' height='20' title='Approve'>Approve</button>
   </tr>
-</table> -->
-<!-- <table>
+</table>
+<table>
 
-  <div class="form-group row">
-    <label class='col-form-label col-sm-2' for="rejectionReason"></label>
-    <input name='Rejection Reason' type="text" class="form-control col-sm-20" id="Rejection Reason"
-     placeholder="Rejection Reason">
-    
-  </div>
+    <div class="form-group row">
+        <label class='col-form-label col-sm-2' for="requestname">Justification:</label>
+        <input [(ngModel)]='request.rejectionReason' name='Name' type="text" class="form-control col-sm-6" id="rejectionReason"
+          aria-describedby="nameHelp" placeholder="Rejection Reason">
+        <small id="nameHelp" class="form-text text-muted col-sm-2">Justification</small>
+      </div>
   <tr></tr>
   <tr>
     <button (click)='reject()' class='btn btn-danger' width='20' height='20' title='Reject'>Reject</button>
   </tr>
 
-</table> -->
-<div>
-
-  <table>
-    <tr>
-      <td><button (click)="approve()" class="btn-primary">Approve</button></td>
-      <td><button (click)="RejectReason()" class="btn btn-danger" [disabled]="isRejected">Reject</button></td>
-      <td>
-    </tr>
-  </table>
-</div>
-<div>
-
-  <table>
-    <tr>
-      <td>
-        <span *ngIf="isRejected">
-          <span> | </span>
-          <input [(ngModel)]="request.rejectionReason" size="50" placeholder="Rejection Reason">
-          <span> | </span>
-          <button (click)="reject()" class="btn btn-danger">Reject</button>
-        </span>
-      </td>
-    </tr>
-  </table>
-</div>
+</table>

@@ -58,6 +58,7 @@ export class LineItemListComponent implements OnInit {
     this.requestSvc.submit(this.request.id).subscribe(
       resp => {
         this.request = resp;
+  
       }
     )
 

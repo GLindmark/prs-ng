@@ -42,4 +42,9 @@ export class RequestService {
     return this.http.get('http://localhost:61100/api/getrequestsforreview/'+id) as Observable<Request[]>;
   }
 
+  reject(id: number): Observable<Request[]> {
+    return this.http.get('http://localhost:61100/api/setstatusrejected/'+id) as Observable<Request[]>;
+    
+  }
+
 }

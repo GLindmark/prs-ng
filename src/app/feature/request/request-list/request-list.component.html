@@ -30,7 +30,7 @@
           <!-- <td>{{request.rejectionReason }}</td> -->
           <td>{{request.status}}</td>
           <td>{{request.deliveryMode}}</td>
-          <td>{{request.total}}</td>
+          <td>{{request.total | currency}}</td>
           <td class='actions'>
             <a routerLink='/request/detail/{{request.id}}' style='padding-left: 16px' class='actionIcon'><img
                 src='assets/details.png' width='20' height='20' title='Detail'></a>
