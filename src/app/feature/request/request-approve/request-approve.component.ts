@@ -3,6 +3,7 @@ import { RequestLine } from '@model/request-line.class';
 import { RequestLineService } from '@svc/request-Line.service';
 import { RequestService } from '@svc/request.service ';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from '@svc/system.service';
 
 @Component({
   selector: 'app-request-approve',
@@ -13,10 +14,12 @@ export class RequestApproveComponent implements OnInit {
   title: string = "Request-Approve";
   request: Request;
   requestLine: RequestLine;
+  rejected: boolean = false;
 
 
   constructor(private requestLineSvc: RequestLineService,
     private requestSvc: RequestService,
+    private sysSvc: SystemService,
     private router: Router,
     private route: ActivatedRoute) { }
 
@@ -47,5 +50,9 @@ export class RequestApproveComponent implements OnInit {
     )
 
 
+  }
+
+  showRejectReason(): void {
+    this.Rejected = true;
   }
 }

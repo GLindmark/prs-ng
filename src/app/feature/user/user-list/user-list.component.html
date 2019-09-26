@@ -20,7 +20,10 @@
         (click)="sortBy('phone')"><u>Phone</u></a></th>
     <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
         (click)="sortBy('email')"><u>Email</u></a></th>
-    <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Privilege</a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('isReviewer')"><u>Reviewer Status</u></a></th>
+    <th class="table-secondary btn-link"><a class="btn btn-link font-weight-bold"
+        (click)="sortBy('isAdmin')"><u>Administrator Status</u></a></th>
     <th class="table-secondary btn-link"><a class='btn btn-link font-weight-bold'>Action</a></th>
   </tr>
   <tr *ngFor='let user of users | sort:sortCriteria:sortOrder'>
@@ -29,7 +32,8 @@
     <td>{{user.lastname}}, {{user.firstname}}</td>
     <td>{{user.phone}}</td>
     <td>{{user.email}}</td>
-    <td>{{user.isReviewer?"Rvw":""}} {{user.isAdmin?"Adm":""}}</td>
+    <td>{{user.isReviewer?"Reviewer":""}}</td>
+    <td>{{user.isAdmin?"Administrator":""}}</td>
     <td class='actions'>
       <a routerLink='/user/detail/{{user.id}}' style='padding-left: 16px' class='actionIcon'><img src='assets/details.png' width='20' height='20' title='Detail'></a>
       <a routerLink='/user/edit/{{user.id}}' class='actionIcon'><img src='assets/pencil-icon.png' width='20' height='20' title='Edit'></a>

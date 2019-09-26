@@ -1,7 +1,9 @@
 <div id='component'>
         <div id='pagetitle'>
           <span>[{{title}}]</span>
-          <span><a routerLink='/request/list'>Back to list</a></span>
+          <div>
+            <span><a routerLink='/request/list'>Back to list</a></span>
+          </div>
         </div>
         <p *ngIf='!request'>Loading...</p>
         <div *ngIf='request'>

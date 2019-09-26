@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from '@svc/request.service ';
 import { Request } from '@model/request.class';
+import { Router, ActivatedRoute } from '@angular/router';
+import { SystemService } from '@svc/system.service';
 
 @Component({
   selector: 'app-request-review-list',
@@ -13,11 +15,14 @@ export class RequestReviewListComponent implements OnInit {
   sortCriteria = 'description';
   sortOrder = 'asc';
 
-  constructor(private requestSvc: RequestService ) { }
+  constructor(private requestSvc: RequestService,
+              private router: Router,
+              private route: ActivatedRoute,
+              private sysSvc: SystemService ) { }
 
   ngOnInit() {
-    //need a reviewlist() on Request Service
-    this.requestSvc.list().subscribe(
+    let id = this.sysSvc.data.user.instance.id;
+    this.requestSvc.getreview(id).subscribe(
       resp => {
         this.requests = resp;
         console.log(this.requests);

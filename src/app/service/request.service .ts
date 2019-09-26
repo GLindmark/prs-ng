@@ -38,8 +38,8 @@ export class RequestService {
     return this.http.get('http://localhost:61100/api/setstatusapproved/'+id) as Observable<Request>;
   }
 
-  getreview(id: number): Observable<Request> {
-    return this.http.get('http://localhost:61100/api/getrequestsforreview/'+id) as Observable<Request>;
+  getreview(id: number): Observable<Request[]> {
+    return this.http.get('http://localhost:61100/api/getrequestsforreview/'+id) as Observable<Request[]>;
   }
 
 }
